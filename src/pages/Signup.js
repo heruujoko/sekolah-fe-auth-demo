@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAlert } from 'react-alert';
 import { withRouter } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../services/axios';
 
 const Signup = (props) => {
   const alert = useAlert();
@@ -26,7 +26,7 @@ const Signup = (props) => {
 
     try {
       setSending(true);
-      const resp = await axios.post('https://service-st-subee.tabspace.xyz/external/users/signup', registerData);
+      const resp = await axios.post('/external/users/signup', registerData);
       alert.success('Dafar berhasil');
       setSending(false);
 
